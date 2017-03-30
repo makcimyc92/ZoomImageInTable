@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MVViewController" customModule="ZoomImageInTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z45-uw-jvV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ZoomImageCell" id="4xl-Sx-Jjv" customClass="MVZoomImageCell" customModule="ZoomImageInTable" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4xl-Sx-Jjv" id="wuP-Mv-NDo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="399.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hj0-jt-sFx" customClass="MVZoomImageView" customModule="ZoomImageInTable" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="20" width="335" height="359.5"/>
+                                                    <gestureRecognizers/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hj0-jt-sFx" secondAttribute="trailing" constant="20" id="HPd-gi-GY9"/>
+                                                <constraint firstItem="hj0-jt-sFx" firstAttribute="top" secondItem="wuP-Mv-NDo" secondAttribute="top" constant="20" id="Haq-MJ-QjT"/>
+                                                <constraint firstItem="hj0-jt-sFx" firstAttribute="leading" secondItem="wuP-Mv-NDo" secondAttribute="leading" constant="20" id="p0V-nn-qjf"/>
+                                                <constraint firstAttribute="bottom" secondItem="hj0-jt-sFx" secondAttribute="bottom" constant="20" id="vDE-aO-1gA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bigImage" destination="hj0-jt-sFx" id="cnj-jQ-KfZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uzj-Zq-AOw"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wX8-Jc-EUR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Z45-uw-jvV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3ME-TN-RRT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Z45-uw-jvV" secondAttribute="bottom" id="Wjf-CJ-5Wp"/>
+                            <constraint firstAttribute="trailing" secondItem="Z45-uw-jvV" secondAttribute="trailing" id="fdG-Bk-lgM"/>
+                            <constraint firstItem="Z45-uw-jvV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zjw-Xn-zJj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
