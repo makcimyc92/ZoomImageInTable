@@ -37,7 +37,7 @@ class MVViewController: UIViewController,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ZoomImageCell") as! MVZoomImageCell
         let urlString = self.imageDataArray[indexPath.row]
-        if let image = self.imageCache.object(forKey:urlString as AnyObject) {
+        if let image = self.imageCache.object(forKey:indexPath as AnyObject) {
             cell.bigImage?.image = image
         }else{
             cell.bigImage?.image = nil
@@ -49,8 +49,10 @@ class MVViewController: UIViewController,UITableViewDataSource {
                 }
                 DispatchQueue.main.async(execute: { () -> Void in
                     if let image = UIImage(data: data!) {
-                        cell.bigImage.image = image
-                        self.imageCache.setObject(image, forKey: response?.url?.absoluteString as AnyObject)
+                        self.imageCache.setObject(image, forKey: indexPath as AnyObject)
+                        if let cellForDownloadImage = tableView.cellForRow(at: indexPath)  as? MVZoomImageCell {
+                            cellForDownloadImage.bigImage.image = image
+                        }
                     }
                 })
             }).resume()
